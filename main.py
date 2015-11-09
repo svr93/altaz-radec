@@ -4,8 +4,10 @@ from astropy import units as u
 from astropy.coordinates import EarthLocation, SkyCoord
 from astropy.time import Time
 
+stationLat=44.93*u.deg # dec
+stationLng=40.98*u.deg # ra
 # TODO: change height value
-stationCoords = EarthLocation(lat=44.93*u.deg, lon=40.98*u.deg, height=0*u.km)
+stationCoords = EarthLocation(lat=stationLat, lon=stationLng, height=0*u.km)
 print 'Station (Armavir) coordinates: ' + str(stationCoords)
 
 # TODO: use timezone shift
@@ -25,3 +27,6 @@ targetCoords = SkyCoord(
 targetCoordsICRS = targetCoords.transform_to('icrs')
 # ---> correct (?) result
 print 'Target coordinates in ICRS system: ' + str(targetCoordsICRS)
+
+targetLat=targetCoordsICRS.data.lat # dec
+targetLng=targetCoordsICRS.data.lon # ra
