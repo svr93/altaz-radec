@@ -14,7 +14,7 @@ print 'Station (Armavir) coordinates: ' + str(stationCoords)
 # TODO: use timezone shift
 time = Time('2015-11-09T00:00:00.000Z')
 
-altAzDistance=1250*u.km
+altAzDistance=1250 # km
 
 # TODO: check Armavir station viewing angles/distances
 # TODO: check distance param (alt: 45 deg; 1250 / Math.sqrt(2) = 884)
@@ -48,3 +48,12 @@ print 'Angular distance between station and target: ' + str(angularDist)
 
 # c * c - 2 * earthRadiusDyn * angularDistCos * c -
 # altAzDistance * altAzDistance + earthRadiusDyn * earthRadiusDyn = 0
+
+earthRadiusDyn = 6371 # km, temporarily
+
+C = - altAzDistance * altAzDistance + earthRadiusDyn * earthRadiusDyn
+B = - 2 * earthRadiusDyn * angularDistCos
+A = 1
+
+# x1 = (-B - SQRT(B * B - 4 * A * C)) / (2 * A)
+# x2 = (-B + SQRT(B * B - 4 * A * C)) / (2 * A)
