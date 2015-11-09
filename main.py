@@ -14,7 +14,7 @@ print 'Station (Armavir) coordinates: ' + str(stationCoords)
 # TODO: use timezone shift
 time = Time('2015-11-09T00:00:00.000Z')
 
-distance=1250*u.km
+altAzDistance=1250*u.km
 
 # TODO: check Armavir station viewing angles/distances
 # TODO: check distance param (alt: 45 deg; 1250 / Math.sqrt(2) = 884)
@@ -42,3 +42,9 @@ angularDistCos=np.sin(stationLat) * np.sin(targetLat) + \
 
 angularDist = np.arccos(angularDistCos)
 print 'Angular distance between station and target: ' + str(angularDist)
+
+# cos theorem: altAzDistance * altAzDistance =
+# earthRadiusDyn * earthRadiusDyn + c * c - 2 * earthRadiusDyn * c * angularDistCos
+
+# c * c - 2 * earthRadiusDyn * angularDistCos * c -
+# altAzDistance * altAzDistance + earthRadiusDyn * earthRadiusDyn = 0
