@@ -5,10 +5,10 @@ from astropy.coordinates import EarthLocation, SkyCoord
 from astropy.time import Time
 import numpy as np
 
-stationLat=44.93*u.deg # dec
-stationLng=40.98*u.deg # ra
+stationLatDeg=44.93*u.deg # dec
+stationLngDeg=40.98*u.deg # ra
 # TODO: change height value
-stationCoords = EarthLocation(lat=stationLat, lon=stationLng, height=0*u.km)
+stationCoords = EarthLocation(lat=stationLatDeg, lon=stationLngDeg, height=0*u.km)
 print 'Station (Armavir) coordinates: ' + str(stationCoords)
 
 # TODO: use timezone shift
@@ -33,6 +33,9 @@ print 'Target coordinates in ICRS system: ' + str(targetCoordsICRS)
 
 targetLat=targetCoordsICRS.data.lat # dec, rad
 targetLng=targetCoordsICRS.data.lon # ra, rad
+
+stationLat=stationLatDeg.to('rad') # dec, rad
+stationLng=stationLngDeg.to('rad') # ra, rad
 
 # http://spiff.rit.edu/classes/phys373/lectures/radec/radec.html
 # cos(y) = sin(dec1)sin(dec2) + cos(dec1)cos(dec2)cos(ra1 - ra2)
