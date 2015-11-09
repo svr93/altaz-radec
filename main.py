@@ -31,8 +31,8 @@ targetCoordsICRS = targetCoords.transform_to('icrs')
 # ---> correct (?) result
 print 'Target coordinates in ICRS system: ' + str(targetCoordsICRS)
 
-targetLat=targetCoordsICRS.data.lat # dec
-targetLng=targetCoordsICRS.data.lon # ra
+targetLat=targetCoordsICRS.data.lat # dec, rad
+targetLng=targetCoordsICRS.data.lon # ra, rad
 
 # http://spiff.rit.edu/classes/phys373/lectures/radec/radec.html
 # cos(y) = sin(dec1)sin(dec2) + cos(dec1)cos(dec2)cos(ra1 - ra2)
