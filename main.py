@@ -21,3 +21,7 @@ targetCoords = SkyCoord(
     obstime=time,
     frame='altaz'
 )
+
+targetCoordsICRS = targetCoords.transform_to('icrs')
+# ---> nan, nan, nan
+print 'Target coordinates in ICRS system: ' + str(targetCoordsICRS)
