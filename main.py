@@ -27,12 +27,12 @@ targetCoords = SkyCoord(
     frame='altaz'
 )
 
-targetCoordsICRS = targetCoords.transform_to('icrs')
+targetCoordsITRS = targetCoords.transform_to('itrs')
 # ---> correct (?) result
-print 'Target coordinates in ICRS system: ' + str(targetCoordsICRS)
+print 'Target coordinates in ITRS system: ' + str(targetCoordsITRS)
 
-targetLat=targetCoordsICRS.data.lat # dec, rad
-targetLng=targetCoordsICRS.data.lon # ra, rad
+targetLat=targetCoordsITRS.spherical.lat.to('rad') # dec, rad
+targetLng=targetCoordsITRS.spherical.lon.to('rad') # ra, rad
 
 stationLat=stationLatDeg.to('rad') # dec, rad
 stationLng=stationLngDeg.to('rad') # ra, rad
