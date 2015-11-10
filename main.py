@@ -37,6 +37,9 @@ targetLng=targetCoordsITRS.spherical.lon.to('rad') # ra, rad
 stationLat=stationLatDeg.to('rad') # dec, rad
 stationLng=stationLngDeg.to('rad') # ra, rad
 
+print str(targetLat) + '~' + str(targetLng)
+print str(stationLat) + '~' + str(stationLng)
+
 # http://spiff.rit.edu/classes/phys373/lectures/radec/radec.html
 # cos(y) = sin(dec1)sin(dec2) + cos(dec1)cos(dec2)cos(ra1 - ra2)
 
@@ -57,6 +60,8 @@ earthRadiusDyn = 6371 # km, temporarily
 C = - altAzDistance * altAzDistance + earthRadiusDyn * earthRadiusDyn
 B = - 2 * earthRadiusDyn * angularDistCos
 A = 1
+
+print B * B - 4 * A * C
 
 # x1 = (-B - SQRT(B * B - 4 * A * C)) / (2 * A)
 # x2 = (-B + SQRT(B * B - 4 * A * C)) / (2 * A)
