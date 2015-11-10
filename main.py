@@ -28,7 +28,7 @@ targetCoords = SkyCoord(
 )
 
 targetCoordsITRS = targetCoords.transform_to('itrs')
-# ---> correct (?) result
+# ---> incorrect result for near-Earth objects (need distance)
 print 'Target coordinates in ITRS system: ' + str(targetCoordsITRS)
 
 targetLat=targetCoordsITRS.spherical.lat.to('rad') # dec, rad
